@@ -1,0 +1,25 @@
+pipeline
+{
+    agent any 
+    tools
+    {
+       maven 'Maven' 
+    }
+	stages
+	{
+		stage('git pull')
+		{
+			steps
+			{
+				git 'https://github.com/tejaswaroopkv/MusicBand.git'
+			}
+		} 
+		stage('maven build')
+		{
+			steps
+			{
+				bat 'mvn install'
+			}
+		}
+	}	
+}
